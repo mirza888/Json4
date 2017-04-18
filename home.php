@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>| Wunderground API |</title>
-
+		<title>| Wunderground API |</title>
+        
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <style type="text/css">
@@ -26,21 +26,47 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" href="./">APP Perkiraan Cuaca</a>
+                    <a class="brand" href="./">APP Perkiraan Cuaca 7 hari </a>
                     <div class="nav-collapse collapse">
+                        <form class="navbar-form pull-right">
+                            <input class="span2" name="city" type="text" placeholder="Kota">
+                            <input class="span2" name="state" type="text" placeholder="ID Negara">
+                            <button type="submit" class="btn btn-success">Perkiraan Cuaca</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-        <div align=center>
-            <form action="GetWeather.php" method="get">
-            <input class="btnForm" type="submit" name="submit" value="Perkiraan cuaca hari ini"/>
-			</form>
-            <form action="home.php" method="get">
-            <input class="btnForm" type="submit" name="submit" value="Perkiraan cuaca 7 hari ke depan"/>
-            </form>
+			</div>
+			<div class="container">
+ 
+</div>
+        <div class="container">
+                <?php if(empty($QueryState) || empty($QueryCity)) { ?>
+                
+                   Silahkan masukan kota dan id kota yang akan anda telusuri.
+                
+                <?php
+                    } else {
+                ?>
+                    
+            
+                    
+            
+            
+            
+                <?php
+                    }
+                ?>
+            
+            
+            <?php
+            ?>
         </div>
     </body>
+	<?php
+    require 'Conditions.php';
+    error_reporting (E_ALL^ (E_NOTICE|E_WARNING));
+?>
 </html>
 
 <?php
@@ -92,6 +118,6 @@ date_default_timezone_set("Asia/Jakarta");
  
 <div style="text-align:center;">
     <b>WAKTU SAAT INI :</b>
-    <h2 id="clock">
+    <h3 id="clock">
 </div>
 </html>
